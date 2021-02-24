@@ -57,7 +57,9 @@ const drawGraph = dataset => {
         .append('rect')
         .attr('x', d => xScale(convertToDate(d[0])))
         .attr('y', d => yScale(d[1]))
-        .attr('width', 1)
+        .attr('width', (w - p - p) / dataset.length)
         .attr('height', d => h - p - yScale(d[1]))
-        .attr('class', 'bar');
+        .attr('class', 'bar')
+        .attr('data-date', d => d[0])
+        .attr('data-gdp', d => d[1]);
 };
