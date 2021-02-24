@@ -17,7 +17,7 @@ const drawGraph = dataset => {
     const w = 700;
     const h = 500;
     const p = 50;
-    console.log(dataset);
+
     const svg = d3
         .select('#chart')
         .append('svg')
@@ -61,5 +61,16 @@ const drawGraph = dataset => {
         .attr('height', d => h - p - yScale(d[1]))
         .attr('class', 'bar')
         .attr('data-date', d => d[0])
-        .attr('data-gdp', d => d[1]);
+        .attr('data-gdp', d => d[1])
+        .on('mouseover', d => {
+            svg.append('text')
+                .text(d[0] + ' - ' + d[1])
+                .attr('id', 'tooltip')
+                .attr('x', xScale(convertToDate(d[0])) + 5)
+                .attr('y', h - p - 25)
+                .attr('data-date', d[0]);
+        })
+        .on('mouseout', () => {
+            d3.selectAll('#tooltip').remove()
+        });
 };

@@ -9,3 +9,7 @@
 .bar {
     fill: coral;
 }
+
+.bar:hover {
+  fill: black;
+}
