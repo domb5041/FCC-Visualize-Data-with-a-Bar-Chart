@@ -1,0 +1,11 @@
+#chart{
+    text-align: center;
+}
+
+#svg-area{
+    border: 1px solid black;
+}
+
+.bar {
+    fill: coral;
+}
